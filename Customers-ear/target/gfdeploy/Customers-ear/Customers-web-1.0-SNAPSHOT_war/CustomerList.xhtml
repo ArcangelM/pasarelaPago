@@ -3,9 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui">  
     <h:head>
-        
         <style type="text/css">
             
             .old{
@@ -17,17 +16,18 @@
             
         </style>
         
-        
         <title>Lista de clientes</title>
     </h:head>
     <h:body>
-        <h1 >Lista de clientes</h1>
-        <f:view>
-
-
-            <h:form>
-                
-                <p:dataTable value="#{customerMBean.customers}" style="margin-bottom:20px"
+        <p>LISTA DE CLIENTES</p>
+        
+        ${customerMBean.showDetails(customer)}
+         ${customerMBean.customers}
+         
+         
+         <p:panel id="lista" header="Lista de clientes">
+             <h:form>
+                 <p:dataTable value="#{customerMBean.customers}" style="margin-bottom:20px"
                              var="item"
                              paginator="true"
                              rows="10"
@@ -39,61 +39,27 @@
                              sortMode="multiple"
                              emptyMessage="No hay datos"
                              widgetVar="customerTable"
-                             rowStyleClass="#{item.creditLimit le 60000 ? 'old':null}" />
-                    
-                    <p:column headerText="CustomerId"
+                             rowStyleClass="#{item.creditLimit le 60000 ? 'old':null}" >
+                     
+                             <p:column headerText="CustomerId"
                               sortBy="#{item.customerId}"
                               filterBy="#{item.customerId}"
                               filterMatchMode="contains" >
-                        <h:commandLink action="#{customerMBean.showDetails(item)}"
-                                       value="#{item.customerId}"/>
-                    </p:column>
-                    <p:column headerText="Qr Code" >
-                        <p:barcode value="#{item.customerId} #{item.creditLimit} #{item.email}"
-                                   type="qr" height="150px" width="150px" />
-                    </p:column>
-                
-                
-                <h1><h:outputText value="Create/Edit"/></h1>
-                <p:panelGrid columns="2">
-                    <p:outputLabel value="Dscount:" for="dscount" />
-                    <p:inputText id="dscount" value="#{customerMBean.customers.dscount}" title="Dscount" />
-                    <p:outputLabel value="Z:" for="z" />
-                    <p:inputText id="z" value="#{customerMBean.customers.z}" title="Z" />
-                    <p:outputLabel value="CustomerId:" for="customerId" />
-                    <p:inputText id="customerId" value="#{customerMBean.customers.customerId}" title="CustomerId" required="true" requiredMessage="The CustomerId field is required."/>
-                    <p:outputLabel value="Name:" for="name" />
-                    <p:inputText id="name" value="#{customerMBean.customers.name}" title="Name" />
-                    <p:outputLabel value="Addressline1:" for="addressline1" />
-                    <p:inputText id="addressline1" value="#{customerMBean.customers.addressline1}" title="Addressline1" />
-                    <p:outputLabel value="Addressline2:" for="addressline2" />
-                    <p:inputText id="addressline2" value="#{customerMBean.customers.addressline2}" title="Addressline2" />
-                    <p:outputLabel value="City:" for="city" />
-                    <p:inputText id="city" value="#{customerMBean.customers.city}" title="City" />
-                    <p:outputLabel value="State:" for="state" />
-                    <p:inputText id="state" value="#{customerMBean.customers.state}" title="State" />
-                    <p:outputLabel value="Phone:" for="phone" />
-                    <p:inputText id="phone" value="#{customerMBean.customers.phone}" title="Phone" />
-                    <p:outputLabel value="Fax:" for="fax" />
-                    <p:inputText id="fax" value="#{customerMBean.customers.fax}" title="Fax" />
-                    <p:outputLabel value="Email:" for="email" />
-                    <p:inputText id="email" value="#{customerMBean.customers.email}" title="Email" />
-                    <p:outputLabel value="CreditLimit:" for="creditLimit" />
-                    <p:inputText id="creditLimit" value="#{customerMBean.customers.creditLimit}" title="CreditLimit" />
-                    <p:outputLabel value="DiscountCode:" for="discountCode" />
-                    <p:selectOneMenu id="discountCode" value="#{customerMBean.customers.discountCode}" required="true" requiredMessage="The DiscountCode field is required.">
-                        <!-- TODO: update below reference to list of available items-->
-                        <f:selectItems value="#{fixme}"/>
-                    </p:selectOneMenu>
-                    <p:outputLabel value="Zip:" for="zip" />
-                    <p:selectOneMenu id="zip" value="#{customerMBean.customers.zip}" required="true" requiredMessage="The Zip field is required.">
-                        <!-- TODO: update below reference to list of available items-->
-                        <f:selectItems value="#{fixme}"/>
-                    </p:selectOneMenu>
-                </p:panelGrid>
-            </h:form>
-        </f:view>
-
+                              <h:commandLink action="#{customerMBean.showDetails(item)}"
+                                             value="#{item.customerId}"/>
+                              </p:column>
+                     
+                            <p:column headerText="Qr Code" >
+                                <p:barcode value="#{item.customerId} #{item.creditLimit} #{item.email}"
+                                           type="qr" height="150px" width="150px" />
+                            </p:column>
+                           
+                            
+                            
+                 </p:dataTable>
+             </h:form>
+         </p:panel>
+         
     </h:body>
 </html>
 

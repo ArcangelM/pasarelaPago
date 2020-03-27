@@ -19,15 +19,15 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>faces/CustomerList.xhtml</welcome-file>
     </welcome-file-list>
     <context-param>
         <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
-        <param-value>6LeESN0UAAAAANT7Ggtiyk-A35zmDi5dIfI7ZNoM</param-value>
+        <param-value>6LdTX-QUAAAAAHG8COBAHD6roz0fdw4nwKA5HzIi</param-value>
     </context-param>
     
     <context-param>
         <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
-        <param-value>6LeESN0UAAAAAM_i9RaNc4ge63g7_3rHMcLrV992</param-value>
+        <param-value>6LdTX-QUAAAAAA_Ci_XMzHM7z_5ug_VvgvPzzbUm</param-value>
     </context-param>
 </web-app>

@@ -19,6 +19,11 @@ import javax.faces.model.SelectItem;
  *
  * @author arcangelmarinp
  */
+/*
+
+@ManagedBean
+@SessionScope
+*/
 public class CustomerMBean implements Serializable {
 
     @EJB
@@ -36,7 +41,15 @@ public class CustomerMBean implements Serializable {
     //Propiedades del modelo
     private Customer customer; //para mostrar, actualizar o insertar en el formulario
     private List<Customer> customers; //para visualizar en la tabla
-
+    private String saludo= "hola esto es un saludo";
+    
+    public String getSaludo(){
+        return saludo;
+    }
+    
+    public void setSaludo(String saludo){
+        this.saludo =saludo;
+    }
     public CustomerMBean() {
     }
 //retorna una lista de clientes para mostrar en un datatable de JSF

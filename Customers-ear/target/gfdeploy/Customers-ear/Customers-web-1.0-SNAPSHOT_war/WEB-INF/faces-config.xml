@@ -9,6 +9,13 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <navigation-rule>
+        <from-view-id>/CustomerList.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>DETAILS</from-outcome>
+            <to-view-id>/CustomerDetails.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
         <from-view-id>/CustomerDetails.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>LIST</from-outcome>
@@ -19,11 +26,10 @@
             <to-view-id>/CustomerList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/CustomerList.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>DETAILS</from-outcome>
-            <to-view-id>/CustomerDetails.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>menuView</managed-bean-name>
+        <managed-bean-class>com.udea.controller.MenuView</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
 </faces-config>

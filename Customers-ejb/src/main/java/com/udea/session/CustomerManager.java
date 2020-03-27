@@ -21,13 +21,11 @@ import javax.persistence.Query;
  * @author arcangelmarinp
  */
 @Stateless
-@LocalBean
 public class CustomerManager implements CustomerManagerLocal {
 
     @PersistenceContext(unitName = "com.udea_Customers-ejb_ejb_1.0-SNAPSHOTPU")
     private EntityManager em;
-    @Resource
-    private javax.transaction.UserTransaction utx;
+    
 
     
 
@@ -49,15 +47,6 @@ public class CustomerManager implements CustomerManagerLocal {
         return query.getResultList();
     }
 
-    public void persist(Object object) {
-        try {
-            utx.begin();
-            em.persist(object);
-            utx.commit();
-        } catch (Exception e) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
-            throw new RuntimeException(e);
-        }
-    }
+    
     
 }

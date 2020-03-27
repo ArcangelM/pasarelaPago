@@ -6,38 +6,15 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Details de un Cliente</title>
+        <script name="jquery/jquery.js" library="primefaces"></script>
     </h:head>
-    <h:body>
+    <h:body>   
         <f:view>
 
 
             <h:form>
-                <p:outputLabel value="DiscountCode:" for="discountCode" />
-                <p:selectOneMenu id="discountCode" value="#{customerMBean.details.discount}" required="true"
-                                 requiredMessage="The DiscountCode field is required.">
-                    <f:selectItems value="#{customerMBean.discountCodes}"/>
-                </p:selectOneMenu>
-                <p:outputLabel value="Zip:" for="zip" />
-                <p:selectOneMenu id="zip" value="#{customerMBean.details.z}" required="true"
-                                 requiredMessage="The Zip field is required.">
-                    <f:selectItems value="#{customerMBean.zipCodes}"/>
-                </p:selectOneMenu>
-                <p:outputLabel value="Discount:" for="discount" />
-                <p:inputText id="discount" value="#{customerMBean.details.discount}" title="Discount" />
-                </p:panelGrid>
-                <h2>Primefaces - Captcha</h2>
-                <p:messages id="msg"/>
-                <p:captcha id="captcha"></p:captcha>
-                <br/>
-                <h:commandButton id="back" value="Back" action="#{customerMBean.list()}"/>
-                <h:commandButton id="update" value="Update" action="#{customerMBean.update()}"/>
-
                 <h1><h:outputText value="Create/Edit"/></h1>
                 <p:panelGrid columns="2">
-                    <p:outputLabel value="Dscount:" for="dscount" />
-                    <p:inputText id="dscount" value="#{customerMBean.details.dscount}" title="Dscount" />
-                    <p:outputLabel value="Z:" for="z" />
-                    <p:inputText id="z" value="#{customerMBean.details.z}" title="Z" />
                     <p:outputLabel value="CustomerId:" for="customerId" />
                     <p:inputText id="customerId" value="#{customerMBean.details.customerId}" title="CustomerId" required="true" requiredMessage="The CustomerId field is required."/>
                     <p:outputLabel value="Name:" for="name" />
@@ -57,21 +34,35 @@
                     <p:outputLabel value="Email:" for="email" />
                     <p:inputText id="email" value="#{customerMBean.details.email}" title="Email" />
                     <p:outputLabel value="CreditLimit:" for="creditLimit" />
-                    <p:inputText id="creditLimit" value="#{customerMBean.details.creditLimit}" title="CreditLimit" />
+                    <p:inputText id="creditLimit"     value="#{customerMBean.details.creditLimit}" title="CreditLimit" />
+                    
                     <p:outputLabel value="DiscountCode:" for="discountCode" />
-                    <p:selectOneMenu id="discountCode" value="#{customerMBean.details.discountCode}" required="true" requiredMessage="The DiscountCode field is required.">
-                        <!-- TODO: update below reference to list of available items-->
-                        <f:selectItems value="#{fixme}"/>
+                    <p:selectOneMenu id="discountCode" value="#{customerMBean.details.discount}" required="true" 
+                                     requiredMessage="The DiscountCode field is required.">
+                         <f:selectItems value="#{customerMBean.discountCodes}"/>
                     </p:selectOneMenu>
+                    
                     <p:outputLabel value="Zip:" for="zip" />
-                    <p:selectOneMenu id="zip" value="#{customerMBean.details.zip}" required="true" requiredMessage="The Zip field is required.">
-                        <!-- TODO: update below reference to list of available items-->
-                        <f:selectItems value="#{fixme}"/>
+                    <p:selectOneMenu id="zip" value="#{customerMBean.details.z}" required="true" 
+                                     requiredMessage="The Zip field is required.">
+                        <f:selectItems value="#{customerMBean.zipCodes}"/>
                     </p:selectOneMenu>
-                </p:panelGrid>
+                    
+                    <p:outputLabel value="Discount:" for="discount" />
+                    <p:inputText id="discount" value="#{customerMBean.details.discount}" title="Discount" />
+              
+                    </p:panelGrid>
+                 <h2>Primefaces - Captcha</h2>
+                <p:messages id="msg"/>
+                 <p:captcha id="captcha"></p:captcha>
+            
+            <br/>
+                <h:commandButton id="back" value="Back" action="#{customerMBean.list()}"/>
+                <h:commandButton id="update" value="Update" action="#{customerMBean.update()}"/>
+                
             </h:form>
         </f:view>
-
+   
     </h:body>
 </html>
 

@@ -85,7 +85,7 @@ public class Customer implements Serializable {
     public Customer() {
     }
     
-    public String getDscount(){return this.discountCode.getDiscountCode();}
+    public String getDiscount(){return this.discountCode.getDiscountCode();}
     
     public void setDiscount(String code){this.discountCode = new DiscountCode(code);}
     
